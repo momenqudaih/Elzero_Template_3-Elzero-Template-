@@ -709,6 +709,7 @@ a {
 }
 .features .container .quality:hover a {
   color: white;
+  z-index: 1;
 }
 
 .features .container .time .img-holder::before {
@@ -742,6 +743,7 @@ a {
 }
 .features .container .time:hover a {
   color: white;
+  z-index: 1;
 }
 
 .features .container .passion .img-holder::before {
@@ -775,6 +777,7 @@ a {
 }
 .features .container .passion:hover a {
   color: white;
+  z-index: 1;
 }
 
 /* End Features */
