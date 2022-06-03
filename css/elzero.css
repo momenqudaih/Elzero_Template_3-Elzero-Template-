@@ -129,6 +129,28 @@ a {
   transition-delay: 0.5s;
 }
 
+.go-up {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  animation: bouncing 1.5s infinite;
+  background-color: var(--main-color);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  z-index: 10;
+}
+.go-up i {
+  width: 50px;
+  height: 50px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
 .spikes {
   position: relative;
 }
@@ -143,6 +165,31 @@ a {
     linear-gradient(225deg, white 25%, transparent 25%);
   background-size: 30px 30px;
 }
+
+.dots {
+  background-image: url(../imgs/dots.png);
+  height: 186px;
+  width: 204px;
+  background-repeat: no-repeat;
+  position: absolute;
+}
+
+@media (max-width: 1200px) {
+  .dots {
+    display: none;
+  }
+}
+
+.dots-up {
+  top: 200px;
+  right: 0;
+}
+
+.dots-down {
+  bottom: 200px;
+  left: 0;
+}
+
 /* End componants */
 
 /* Start Header  */
@@ -218,7 +265,7 @@ a {
   background-color: var(--main-color);
   top: 0;
   left: -100%;
-  height: 3px;
+  height: 4px;
   width: 100%;
   transition: var(--main-transition);
   -webkit-transition: var(--main-transition);
@@ -1224,6 +1271,7 @@ a {
 .events {
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
+  position: relative;
 }
 
 .events .container {
@@ -1436,6 +1484,7 @@ a {
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
   background-color: var(--section-background);
+  position: relative;
 }
 
 .pricing .container {
@@ -1662,7 +1711,332 @@ a {
   margin-top: 10px;
 }
 /* End videos */
+/* start stats */
+.stats {
+  padding-top: var(--main-padding-top);
+  padding-bottom: var(--main-padding-bottom);
+  background-image: url("../imgs/stats.jpg");
+  position: relative;
+}
+.stats::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255 255 255 / 95%);
+}
 
+.stats h2 {
+  text-align: center;
+  position: relative;
+  font-size: 40px;
+  margin: 0 auto 50px;
+  font-weight: bold;
+  width: fit-content;
+}
+
+.stats .container {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.stats .container .box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 15px;
+  background-color: white;
+  position: relative;
+}
+.stats .container .box::before,
+.stats .container .box::after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 0;
+  background-color: var(--main-color);
+  transition: 1s;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -ms-transition: 1s;
+  -o-transition: 1s;
+}
+.stats .container .box::before {
+  left: 0;
+  bottom: 0;
+}
+.stats .container .box::after {
+  right: 0;
+  top: 0;
+}
+.stats .container .box:hover::before,
+.stats .container .box:hover::after {
+  height: 100%;
+}
+
+.stats .box .number {
+  font-size: 50px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.stats .box .text {
+  font-size: 20px;
+  color: var(--main-color);
+  font-weight: bold;
+  font-style: italic;
+}
+/* End stats */
+/* start discount */
+.discount {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.discount .image {
+  flex-basis: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../imgs/discount-background1.jpg");
+  background-size: cover;
+  z-index: 1;
+  position: relative;
+  color: white;
+  animation: change-background 10s linear infinite;
+  -webkit-animation: change-background 10s linear infinite;
+}
+
+.discount .image::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(23 135 224 / 97%);
+  z-index: -1;
+}
+@media (max-width: 991px) {
+  .discount .image {
+    flex-basis: 100%;
+  }
+}
+
+.discount .content {
+  text-align: center;
+  padding: 0 20px;
+}
+
+.discount .content h2 {
+  font-size: 40px;
+  margin: 32px 0;
+  letter-spacing: -2px;
+}
+
+.discount .content p {
+  margin: 0 0 18px;
+  line-height: 1.6;
+  max-width: 500px;
+  font-size: 18px;
+}
+
+.discount .image img {
+  width: 300px;
+  max-width: 100%;
+}
+
+.discount .form {
+  flex-basis: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+}
+@media (max-width: 991px) {
+  .discount .form {
+    flex-basis: 100%;
+  }
+}
+
+.discount .form .input {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 25px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  background-color: #f9f9f9;
+  caret-color: var(--main-color);
+}
+.discount .form .input:focus {
+  outline: none;
+}
+
+.discount .form textarea.input {
+  resize: none;
+  height: 200px;
+}
+
+.discount .form form input[type="submit"] {
+  display: block;
+  padding: 15px;
+  background-color: var(--main-color);
+  width: 100%;
+  color: white;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
+}
+.discount .form form input[type="submit"]:hover {
+  background-color: var(--main-color-alt);
+}
+/* End discount */
+/* start footer */
+.footer {
+  background-color: #191919;
+  padding: 70px 0 0;
+  color: #b9b9b9;
+}
+
+.footer .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+.footer .container h3 {
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.footer .container .social {
+  display: flex;
+  align-items: center;
+}
+
+.footer .container .social li {
+  margin-right: 10px;
+}
+.footer .container .social li:hover a {
+  background-color: var(--main-color-alt);
+}
+
+.footer .container .social li a {
+  background-color: #313131;
+  width: 50px;
+  height: 50px;
+  color: #b9b9b9;
+  font-size: 20px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
+}
+
+.footer .container .text {
+  margin: 16px 0;
+  line-height: 2;
+  color: #b9b9b9;
+}
+
+.footer .container .links li {
+  padding: 15px 0;
+  transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
+}
+.footer .container .links li:hover {
+  padding-left: 10px;
+}
+
+.footer .container .links li:not(:last-child) {
+  border-bottom: 1px solid #444;
+}
+
+.footer .container .links li a {
+  color: #b9b9b9;
+  position: relative;
+}
+.footer .container .links li a::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\F101";
+  font-weight: 900;
+  margin-right: 10px;
+  color: var(--main-color);
+}
+
+.footer .container .line {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.footer .container .line i {
+  margin-right: 10px;
+  font-size: 25px;
+  color: var(--main-color);
+}
+
+.footer .container .line .info {
+  line-height: 1.7;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer .footer-gallery img {
+  width: 78px;
+  border: 3px solid white;
+  margin: 2px;
+}
+
+@media (max-width: 767px) {
+  .footer .container .box {
+    text-align: center;
+  }
+  .footer .container .social {
+    justify-content: center;
+  }
+  .footer .container .line {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer .container .line i {
+    margin: 0 0 15px;
+  }
+}
+
+.footer .copyright {
+  margin-top: 50px;
+  padding: 25px 0;
+  text-align: center;
+  color: white;
+  border-top: 1px solid #444;
+}
+
+/* End footer */
 /* Start animation */
 @keyframes up-and-down {
   0%,
@@ -1751,4 +2125,13 @@ a {
   }
 }
 
+@keyframes change-background {
+  0%,
+  100% {
+    background-image: url("../imgs/discount-background1.jpg");
+  }
+  50% {
+    background-image: url("../imgs/discount-background2.jpg");
+  }
+}
 /* End animation */
